@@ -1,9 +1,9 @@
-import 'package:dawak/app_colors.dart';
-import 'package:dawak/ui/widgets/auth_divider.dart';
-import 'package:dawak/ui/widgets/google_signin_section.dart';
-import 'package:dawak/ui/widgets/login_form.dart';
-import 'package:dawak/ui/widgets/login_header.dart';
-import 'package:dawak/ui/widgets/sign_up_section.dart';
+import 'package:dawak/core/theme/app_colors.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/auth_divider.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/google_signin_section.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/login_form.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/login_header.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/sign_up_section.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {

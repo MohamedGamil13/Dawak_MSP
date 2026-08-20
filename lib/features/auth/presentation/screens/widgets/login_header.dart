@@ -1,4 +1,4 @@
-import 'package:dawak/app_colors.dart';
+import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginHeader extends StatelessWidget {

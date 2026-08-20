@@ -1,5 +1,5 @@
-import 'package:dawak/app_colors.dart';
-import 'package:dawak/ui/widgets/auth_text_field.dart';
+import 'package:dawak/core/theme/app_colors.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {

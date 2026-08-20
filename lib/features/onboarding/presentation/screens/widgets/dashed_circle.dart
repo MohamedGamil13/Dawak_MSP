@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashedCircle extends StatelessWidget {
   const DashedCircle({super.key, required this.color, required this.size});
@@ -14,8 +15,8 @@ class DashedCircle extends StatelessWidget {
       height: size,
       child: DottedBorder(
         options: CircularDottedBorderOptions(
-          dashPattern: const [8, 6],
-          strokeWidth: 2,
+          dashPattern: [8.w, 6.w],
+          strokeWidth: 2.w,
           color: color,
         ),
         child: const SizedBox.expand(),

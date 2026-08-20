@@ -4,13 +4,8 @@ import 'package:flutter/material.dart';
 
 class WelcomeScreenBody extends StatefulWidget {
   final VoidCallback onGetStarted;
-  final VoidCallback onLogin;
 
-  const WelcomeScreenBody({
-    super.key,
-    required this.onGetStarted,
-    required this.onLogin,
-  });
+  const WelcomeScreenBody({super.key, required this.onGetStarted});
 
   @override
   State<WelcomeScreenBody> createState() => _WelcomeScreenBodyState();
@@ -50,7 +45,6 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody>
         WelcomeContent(
           spinController: _spinController,
           onGetStarted: widget.onGetStarted,
-          onLogin: widget.onLogin,
         ),
       ],
     );

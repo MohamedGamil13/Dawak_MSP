@@ -1,5 +1,7 @@
 import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class AuthTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -32,15 +34,13 @@ class AuthTextField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 14,
+          style: TextStyle(
+            fontSize: 14.sp,
             fontWeight: FontWeight.w500,
             color: AppColors.onSurface,
           ),
         ),
-
-        const SizedBox(height: 4),
-
+        Gap(4.h),
         TextFormField(
           controller: controller,
           keyboardType: keyboardType,
@@ -51,36 +51,28 @@ class AuthTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: const TextStyle(color: AppColors.outline),
-
             prefixIcon: Icon(prefixIcon, color: AppColors.outline),
-
             suffixIcon: suffixIcon,
-
             filled: true,
             fillColor: AppColors.surface,
-
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 16,
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 12.w,
+              vertical: 16.h,
             ),
-
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               borderSide: const BorderSide(color: AppColors.outlineVariant),
             ),
-
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               borderSide: const BorderSide(color: AppColors.outlineVariant),
             ),
-
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               borderSide: const BorderSide(color: AppColors.primary, width: 2),
             ),
-
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               borderSide: const BorderSide(color: Colors.red),
             ),
           ),

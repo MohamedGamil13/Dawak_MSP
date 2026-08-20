@@ -1,7 +1,8 @@
 import 'package:dawak/core/theme/app_colors.dart';
-import 'package:dawak/features/auth/presentation/screens/register_screen.dart';
 import 'package:dawak/features/auth/presentation/screens/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -56,9 +57,7 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-
-          const SizedBox(height: 16),
-
+          Gap(16.h),
           AuthTextField(
             controller: _passwordController,
             label: 'Password',
@@ -86,57 +85,45 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-
-          const SizedBox(height: 8),
-
+          Gap(8.h),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {
-                // TODO: MODIFY
-                // Navigate to Forgot Password Screen ==========================
-              },
-              child: const Text(
+              onPressed: () {},
+              child: Text(
                 'Forgot Password?',
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: AppColors.primary,
                 ),
               ),
             ),
           ),
-
-          const SizedBox(height: 8),
-
+          Gap(8.h),
           SizedBox(
             width: double.infinity,
-            height: 52,
+            height: 52.h,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                );
-              },
-              // _signIn,
+              onPressed: _signIn,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
                 elevation: 4,
                 shape: const StadiumBorder(),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Sign In',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-
-                  SizedBox(width: 8),
-
-                  Icon(Icons.arrow_forward, size: 20),
+                  Gap(8.w),
+                  Icon(Icons.arrow_forward, size: 20.sp),
                 ],
               ),
             ),

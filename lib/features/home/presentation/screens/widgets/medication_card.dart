@@ -1,5 +1,7 @@
 import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class MedicationCard extends StatelessWidget {
   final String name;
@@ -28,7 +30,7 @@ class MedicationCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.surfaceContainerLowest,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
             color: isTaken
                 ? const Color(0xFF6FFBBE)
@@ -37,8 +39,8 @@ class MedicationCard extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.05),
-              blurRadius: 12,
-              offset: const Offset(0, 4),
+              blurRadius: 12.r,
+              offset: Offset(0, 4.r),
             ),
           ],
         ),
@@ -46,14 +48,13 @@ class MedicationCard extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              width: 6,
-              height: 92,
+              width: 6.w,
+              height: 92.h,
               color: isTaken ? const Color(0xFF6FFBBE) : AppColors.primary,
             ),
-
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16.w),
                 child: Row(
                   children: [
                     Expanded(
@@ -67,7 +68,7 @@ class MedicationCard extends StatelessWidget {
                                   name,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 20.sp,
                                     fontWeight: FontWeight.w600,
                                     color: AppColors.onSurface,
                                     decoration: isTaken
@@ -76,34 +77,30 @@ class MedicationCard extends StatelessWidget {
                                   ),
                                 ),
                               ),
-
                               if (!isTaken && type.isNotEmpty) ...[
-                                const SizedBox(width: 8),
-
+                                Gap(8.w),
                                 Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 4,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 8.w,
+                                    vertical: 4.h,
                                   ),
                                   decoration: BoxDecoration(
                                     color: AppColors.surfaceContainer,
-                                    borderRadius: BorderRadius.circular(999),
+                                    borderRadius: BorderRadius.circular(999.r),
                                   ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Icon(
                                         icon,
-                                        size: 14,
+                                        size: 14.sp,
                                         color: AppColors.onSurfaceVariant,
                                       ),
-
-                                      const SizedBox(width: 4),
-
+                                      Gap(4.w),
                                       Text(
                                         type,
-                                        style: const TextStyle(
-                                          fontSize: 12,
+                                        style: TextStyle(
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w600,
                                           color: AppColors.onSurfaceVariant,
                                         ),
@@ -114,36 +111,32 @@ class MedicationCard extends StatelessWidget {
                               ],
                             ],
                           ),
-
-                          const SizedBox(height: 8),
-
+                          Gap(8.h),
                           Row(
                             children: [
                               Text(
                                 dose,
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   color: AppColors.onSurfaceVariant,
                                   decoration: isTaken
                                       ? TextDecoration.lineThrough
                                       : null,
                                 ),
                               ),
-
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.w),
                                 child: Icon(
                                   Icons.circle,
-                                  size: 5,
+                                  size: 5.r,
                                   color: AppColors.outlineVariant,
                                 ),
                               ),
-
                               Flexible(
                                 child: Text(
                                   time,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     fontWeight: isTaken
                                         ? FontWeight.w400
                                         : FontWeight.w600,
@@ -158,9 +151,7 @@ class MedicationCard extends StatelessWidget {
                         ],
                       ),
                     ),
-
-                    const SizedBox(width: 12),
-
+                    Gap(12.w),
                     _MedicationStatusButton(isTaken: isTaken),
                   ],
                 ),
@@ -182,8 +173,8 @@ class _MedicationStatusButton extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isTaken) {
       return Container(
-        width: 48,
-        height: 48,
+        width: 48.r,
+        height: 48.r,
         decoration: const BoxDecoration(
           color: Color(0x336FFBBE),
           shape: BoxShape.circle,
@@ -194,13 +185,13 @@ class _MedicationStatusButton extends StatelessWidget {
 
     return InkWell(
       onTap: () {},
-      borderRadius: BorderRadius.circular(999),
+      borderRadius: BorderRadius.circular(999.r),
       child: Container(
-        width: 48,
-        height: 48,
+        width: 48.r,
+        height: 48.r,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: AppColors.primary, width: 2),
+          border: Border.all(color: AppColors.primary, width: 2.w),
         ),
         child: const Icon(Icons.check, color: AppColors.primary),
       ),

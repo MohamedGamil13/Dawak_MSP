@@ -1,5 +1,7 @@
 import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class SignUpHeader extends StatelessWidget {
   const SignUpHeader({super.key});
@@ -9,54 +11,44 @@ class SignUpHeader extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 48,
-          height: 48,
+          width: 48.r,
+          height: 48.r,
           decoration: BoxDecoration(
             color: AppColors.primaryContainer,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.10),
-                blurRadius: 8,
-                offset: const Offset(0, 2),
+                blurRadius: 8.r,
+                offset: Offset(0, 2.r),
               ),
             ],
           ),
-          child: const Icon(
-            Icons.medical_services,
-            size: 28,
-            color: Colors.white,
-          ),
+          child: Icon(Icons.medical_services, size: 28.r, color: Colors.white),
         ),
-
-        const SizedBox(height: 8),
-
-        const Text(
+        Gap(8.h),
+        Text(
           'MedTrack',
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 24.sp,
             fontWeight: FontWeight.w600,
             color: AppColors.primary,
           ),
         ),
-
-        const SizedBox(height: 16),
-
-        const Text(
+        Gap(16.h),
+        Text(
           'Create your account',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w600,
             color: AppColors.onSurface,
           ),
         ),
-
-        const SizedBox(height: 4),
-
-        const Text(
+        Gap(4.h),
+        Text(
           'Start managing your health today.',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16, color: AppColors.onSurfaceVariant),
+          style: TextStyle(fontSize: 16.sp, color: AppColors.onSurfaceVariant),
         ),
       ],
     );

@@ -1,11 +1,12 @@
+import 'package:dawak/core/theme/app_colors.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/home_bottom_nav_bar.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/home_header.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/progress_section.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/stock_alert_banner.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/today_schdule_section.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/theme/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,38 +15,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
         child: const Icon(Icons.add),
       ),
-
       bottomNavigationBar: const HomeBottomNavBar(),
-
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
           children: [
-            HomeHeader(),
-
+            const HomeHeader(),
             Expanded(
               child: SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(20, 16, 20, 24),
+                padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 24.h),
                 child: Column(
                   children: [
-                    StockAlertBanner(),
-
-                    SizedBox(height: 24),
-
-                    TodayScheduleSection(),
-
-                    SizedBox(height: 24),
-
-                    ProgressSection(),
-
-                    SizedBox(height: 80),
+                    const StockAlertBanner(),
+                    Gap(24.h),
+                    const TodayScheduleSection(),
+                    Gap(24.h),
+                    const ProgressSection(),
+                    Gap(80.h),
                   ],
                 ),
               ),

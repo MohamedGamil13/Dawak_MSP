@@ -1,67 +1,39 @@
+import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class ActionButtons extends StatelessWidget {
   final VoidCallback onGetStarted;
-  final VoidCallback onLogin;
 
-  const ActionButtons({
-    super.key,
-    required this.onGetStarted,
-    required this.onLogin,
-  });
+  const ActionButtons({super.key, required this.onGetStarted});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Get Started
-        SizedBox(
-          width: double.infinity,
-          height: 52,
-          child: ElevatedButton(
-            onPressed: onGetStarted,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF005A71),
-              foregroundColor: Colors.white,
-              elevation: 4,
-              shadowColor: Colors.black.withValues(alpha: 0.10),
-              shape: const StadiumBorder(),
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Get Started',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                ),
-                SizedBox(width: 8),
-                Icon(Icons.arrow_forward, size: 18),
-              ],
-            ),
-          ),
+    return SizedBox(
+      width: double.infinity,
+      height: 52.h,
+      child: ElevatedButton(
+        onPressed: onGetStarted,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: Colors.white,
+          elevation: 4,
+          shadowColor: Colors.black.withValues(alpha: 0.10),
+          shape: const StadiumBorder(),
         ),
-
-        const SizedBox(height: 16),
-
-        // Login
-        SizedBox(
-          width: double.infinity,
-          height: 52,
-          child: OutlinedButton(
-            onPressed: onLogin,
-            style: OutlinedButton.styleFrom(
-              foregroundColor: const Color(0xFF005A71),
-              backgroundColor: const Color(0xFFF8F9FF),
-              side: const BorderSide(color: Color(0xFFBEC8CD)),
-              shape: const StadiumBorder(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Get Started',
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
-            child: const Text(
-              'Log In',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-            ),
-          ),
+            Gap(8.w),
+            Icon(Icons.arrow_forward, size: 18.sp),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class LoginHeader extends StatelessWidget {
   const LoginHeader({super.key});
@@ -9,37 +11,33 @@ class LoginHeader extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 64,
-          height: 64,
+          width: 64.r,
+          height: 64.r,
           decoration: const BoxDecoration(
             color: AppColors.primaryContainer,
             shape: BoxShape.circle,
           ),
-          child: const Icon(
+          child: Icon(
             Icons.medical_services,
-            size: 36,
+            size: 36.r,
             color: AppColors.primary,
           ),
         ),
-
-        const SizedBox(height: 12),
-
-        const Text(
+        Gap(12.h),
+        Text(
           'MedTrack',
           style: TextStyle(
-            fontSize: 32,
+            fontSize: 32.sp,
             fontWeight: FontWeight.w700,
-            letterSpacing: -0.64,
+            letterSpacing: -0.64.sp,
             color: AppColors.primary,
           ),
         ),
-
-        const SizedBox(height: 8),
-
-        const Text(
+        Gap(8.h),
+        Text(
           'Manage your health with precision.',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16, color: AppColors.onSurfaceVariant),
+          style: TextStyle(fontSize: 16.sp, color: AppColors.onSurfaceVariant),
         ),
       ],
     );

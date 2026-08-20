@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FloatingIcon extends StatelessWidget {
   final AnimationController controller;
@@ -25,12 +26,12 @@ class FloatingIcon extends StatelessWidget {
     return AnimatedBuilder(
       animation: controller,
       builder: (context, child) {
-        final offset = math.sin(controller.value * math.pi) * amplitude;
+        final offset = math.sin(controller.value * math.pi) * amplitude.r;
         return Transform.translate(offset: Offset(0, -offset), child: child);
       },
       child: Opacity(
         opacity: opacity,
-        child: Icon(icon, size: size, color: color),
+        child: Icon(icon, size: size.r, color: color),
       ),
     );
   }

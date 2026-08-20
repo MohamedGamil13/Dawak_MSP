@@ -1,8 +1,8 @@
 import 'package:dawak/core/theme/app_colors.dart';
-import 'package:dawak/features/home/presentation/screens/home_screen.dart';
+import 'package:dawak/features/auth/presentation/screens/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
-
-import 'auth_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -58,9 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
           ),
-
-          const SizedBox(height: 16),
-
+          Gap(16.h),
           AuthTextField(
             controller: _emailController,
             label: 'Email Address',
@@ -80,9 +78,7 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
           ),
-
-          const SizedBox(height: 16),
-
+          Gap(16.h),
           AuthTextField(
             controller: _passwordController,
             label: 'Password',
@@ -115,9 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
           ),
-
-          const SizedBox(height: 16),
-
+          Gap(16.h),
           AuthTextField(
             controller: _confirmPasswordController,
             label: 'Confirm Password',
@@ -150,35 +144,30 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
           ),
-
-          const SizedBox(height: 16),
-
+          Gap(16.h),
           SizedBox(
             width: double.infinity,
-            height: 48,
+            height: 48.h,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
-                );
-              },
-              // _createAccount,
+              onPressed: _createAccount,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
                 elevation: 4,
                 shape: const StadiumBorder(),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Create Account',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  SizedBox(width: 8),
-                  Icon(Icons.arrow_forward, size: 20),
+                  Gap(8.w),
+                  Icon(Icons.arrow_forward, size: 20.sp),
                 ],
               ),
             ),

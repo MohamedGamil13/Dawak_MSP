@@ -5,6 +5,8 @@ import 'package:dawak/features/auth/presentation/screens/widgets/login_form.dart
 import 'package:dawak/features/auth/presentation/screens/widgets/login_header.dart';
 import 'package:dawak/features/auth/presentation/screens/widgets/sign_up_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({super.key});
@@ -14,47 +16,36 @@ class LoginScreenBody extends StatelessWidget {
     return SafeArea(
       child: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 448),
-            child: Container(
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                color: AppColors.surfaceContainerLowest,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: AppColors.outlineVariant.withValues(alpha: 0.30),
+          padding: EdgeInsets.all(20.w),
+          child: Container(
+            padding: EdgeInsets.all(24.w),
+            decoration: BoxDecoration(
+              color: AppColors.surfaceContainerLowest,
+              borderRadius: BorderRadius.circular(12.r),
+              border: Border.all(
+                color: AppColors.outlineVariant.withValues(alpha: 0.30),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 12.r,
+                  offset: Offset(0, 4.r),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.05),
-                    blurRadius: 12,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  LoginHeader(),
-
-                  SizedBox(height: 24),
-
-                  LoginForm(),
-
-                  SizedBox(height: 20),
-
-                  AuthDivider(),
-
-                  SizedBox(height: 16),
-
-                  SocialLoginSection(),
-
-                  SizedBox(height: 20),
-
-                  SignUpSection(),
-                ],
-              ),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const LoginHeader(),
+                Gap(24.h),
+                const LoginForm(),
+                Gap(20.h),
+                const AuthDivider(),
+                Gap(16.h),
+                const SocialLoginSection(),
+                Gap(20.h),
+                const SignUpSection(),
+              ],
             ),
           ),
         ),

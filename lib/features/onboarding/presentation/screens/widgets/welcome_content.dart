@@ -2,39 +2,36 @@ import 'package:dawak/features/onboarding/presentation/screens/widgets/action_bu
 import 'package:dawak/features/onboarding/presentation/screens/widgets/hero_section.dart';
 import 'package:dawak/features/onboarding/presentation/screens/widgets/welcome_title_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class WelcomeContent extends StatelessWidget {
   final AnimationController spinController;
   final VoidCallback onGetStarted;
-  final VoidCallback onLogin;
 
   const WelcomeContent({
     super.key,
     required this.spinController,
     required this.onGetStarted,
-    required this.onLogin,
   });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 448),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 20),
-                HeroIllustration(spinController: spinController),
-                const SizedBox(height: 32),
-                const WelcomeTitleSection(),
-                const SizedBox(height: 32),
-                ActionButtons(onGetStarted: onGetStarted, onLogin: onLogin),
-                const SizedBox(height: 24),
-              ],
-            ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Gap(20.h),
+              HeroIllustration(spinController: spinController),
+              Gap(32.h),
+              const WelcomeTitleSection(),
+              Gap(32.h),
+              ActionButtons(onGetStarted: onGetStarted),
+              Gap(24.h),
+            ],
           ),
         ),
       ),

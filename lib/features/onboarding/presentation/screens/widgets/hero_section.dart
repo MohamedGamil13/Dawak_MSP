@@ -1,7 +1,9 @@
 import 'dart:math' as math;
 
+import 'package:dawak/core/theme/app_colors.dart';
 import 'package:dawak/features/onboarding/presentation/screens/widgets/dashed_circle.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeroIllustration extends StatelessWidget {
   final AnimationController spinController;
@@ -10,7 +12,7 @@ class HeroIllustration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size.width < 600 ? 256.0 : 320.0;
+    final size = 256.r;
 
     return SizedBox(
       width: size,
@@ -22,15 +24,15 @@ class HeroIllustration extends StatelessWidget {
           Container(
             width: size,
             height: size,
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.r),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: const Color(0xFFEFF4FF),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 24,
-                  offset: const Offset(0, 8),
+                  blurRadius: 24.r,
+                  offset: Offset(0, 8.r),
                 ),
               ],
             ),
@@ -39,10 +41,10 @@ class HeroIllustration extends StatelessWidget {
                 "assets/images/welcome_image.jpg",
                 fit: BoxFit.contain,
                 errorBuilder: (context, error, stackTrace) {
-                  return const Icon(
+                  return Icon(
                     Icons.medication,
-                    size: 100,
-                    color: Color(0xFF005A71),
+                    size: 100.r,
+                    color: AppColors.primary,
                   );
                 },
               ),
@@ -65,8 +67,8 @@ class HeroIllustration extends StatelessWidget {
 
           // Inner ring
           Container(
-            width: size - 32,
-            height: size - 32,
+            width: size - 32.r,
+            height: size - 32.r,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(

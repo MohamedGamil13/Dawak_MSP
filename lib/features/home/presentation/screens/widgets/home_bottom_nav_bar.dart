@@ -1,5 +1,7 @@
 import 'package:dawak/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class HomeBottomNavBar extends StatelessWidget {
   const HomeBottomNavBar({super.key});
@@ -7,8 +9,8 @@ class HomeBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 76,
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      height: 76.h,
+      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
       decoration: const BoxDecoration(
         color: AppColors.surface,
         border: Border(top: BorderSide(color: AppColors.surfaceContainerHigh)),
@@ -22,15 +24,12 @@ class HomeBottomNavBar extends StatelessWidget {
             isSelected: true,
             onTap: () {},
           ),
-
           _NavItem(icon: Icons.history, label: 'History', onTap: () {}),
-
           _NavItem(
             icon: Icons.category_outlined,
             label: 'Categories',
             onTap: () {},
           ),
-
           _NavItem(icon: Icons.person_outline, label: 'Profile', onTap: () {}),
         ],
       ),
@@ -57,24 +56,22 @@ class _NavItem extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(999),
+      borderRadius: BorderRadius.circular(999.r),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primaryContainer : Colors.transparent,
-          borderRadius: BorderRadius.circular(999),
+          borderRadius: BorderRadius.circular(999.r),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 22, color: color),
-
-            const SizedBox(height: 2),
-
+            Icon(icon, size: 22.sp, color: color),
+            Gap(2.h),
             Text(
               label,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w600,
                 color: color,
               ),

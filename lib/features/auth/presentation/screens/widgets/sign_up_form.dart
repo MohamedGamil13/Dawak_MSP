@@ -1,4 +1,5 @@
 import 'package:dawak/core/theme/app_colors.dart';
+import 'package:dawak/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_text_field.dart';
@@ -156,7 +157,13 @@ class _SignUpFormState extends State<SignUpForm> {
             width: double.infinity,
             height: 48,
             child: ElevatedButton(
-              onPressed: _createAccount,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+              // _createAccount,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,

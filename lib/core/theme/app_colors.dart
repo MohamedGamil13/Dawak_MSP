@@ -17,6 +17,10 @@ class AppColors {
 
   static const Color outline = Color(0xFF6F787D);
   static const Color outlineVariant = Color(0xFFBEC8CD);
+  static const Color secondary = Color(0xFF006C49);
+  static const Color primaryFixed = Color(0xFFB9EAFF);
+  static const Color onPrimaryContainer = Color(0xFFD3F1FF);
+  static const Color surfaceContainer = Color(0xFFE5EEFF);
 
   static const Color white = Colors.white;
 }

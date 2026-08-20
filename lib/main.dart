@@ -1,5 +1,5 @@
+import 'package:dawak/features/onboarding/presentation/screens/welcome_screen.dart';
 import 'package:dawak/firebase_options.dart';
-import 'package:dawak/ui/screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

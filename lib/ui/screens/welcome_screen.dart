@@ -1,4 +1,4 @@
-import 'package:dawak/ui/widgets/back_ground_decoration.dart';
+import 'package:dawak/ui/widgets/welcome_screen_body.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -6,6 +6,10 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: SafeArea(child: BackGroundDecoration()));
+    return Scaffold(
+      body: SafeArea(
+        child: WelcomeScreenBody(onGetStarted: () {}, onLogin: () {}),
+      ),
+    );
   }
 }

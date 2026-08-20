@@ -1,5 +1,6 @@
 import 'package:dawak/core/theme/app_colors.dart';
 import 'package:dawak/features/auth/presentation/screens/widgets/auth_text_field.dart';
+import 'package:dawak/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -31,12 +32,12 @@ class _SignUpFormState extends State<SignUpForm> {
     super.dispose();
   }
 
-  void _createAccount() {
-    if (!_formKey.currentState!.validate()) return;
+  // void _createAccount() {
+  //   if (!_formKey.currentState!.validate()) return;
 
-    debugPrint('Name: ${_fullNameController.text}');
-    debugPrint('Email: ${_emailController.text}');
-  }
+  //   debugPrint('Name: ${_fullNameController.text}');
+  //   debugPrint('Email: ${_emailController.text}');
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +150,13 @@ class _SignUpFormState extends State<SignUpForm> {
             width: double.infinity,
             height: 48.h,
             child: ElevatedButton(
-              onPressed: _createAccount,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+              // _createAccount,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,

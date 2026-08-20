@@ -1,4 +1,5 @@
 import 'package:dawak/core/theme/app_colors.dart';
+import 'package:dawak/features/auth/presentation/screens/register_screen.dart';
 import 'package:dawak/features/auth/presentation/screens/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,12 +27,12 @@ class _LoginFormState extends State<LoginForm> {
     super.dispose();
   }
 
-  void _signIn() {
-    if (!_formKey.currentState!.validate()) return;
+  // void _signIn() {
+  //   if (!_formKey.currentState!.validate()) return;
 
-    debugPrint('Email: ${_emailController.text}');
-    debugPrint('Password: ${_passwordController.text}');
-  }
+  //   debugPrint('Email: ${_emailController.text}');
+  //   debugPrint('Password: ${_passwordController.text}');
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +106,13 @@ class _LoginFormState extends State<LoginForm> {
             width: double.infinity,
             height: 52.h,
             child: ElevatedButton(
-              onPressed: _signIn,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                );
+              },
+              // _signIn,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,

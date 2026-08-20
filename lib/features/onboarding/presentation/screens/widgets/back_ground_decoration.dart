@@ -1,5 +1,5 @@
-import 'package:dawak/ui/widgets/floating_icon.dart';
-import 'package:dawak/ui/widgets/glow_circle.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/floating_icon.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/glow_circle.dart';
 import 'package:flutter/material.dart';
 
 class BackGroundDecoration extends StatelessWidget {

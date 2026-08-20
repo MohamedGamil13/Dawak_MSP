@@ -1,6 +1,6 @@
-import 'package:dawak/ui/widgets/action_button.dart';
-import 'package:dawak/ui/widgets/hero_section.dart';
-import 'package:dawak/ui/widgets/welcome_title_section.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/action_button.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/hero_section.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/welcome_title_section.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeContent extends StatelessWidget {

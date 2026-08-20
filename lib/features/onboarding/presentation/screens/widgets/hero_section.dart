@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:dawak/ui/widgets/dashed_circle.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/dashed_circle.dart';
 import 'package:flutter/material.dart';
 
 class HeroIllustration extends StatelessWidget {

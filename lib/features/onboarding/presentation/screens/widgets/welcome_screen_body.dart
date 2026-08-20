@@ -1,5 +1,5 @@
-import 'package:dawak/ui/widgets/back_ground_decoration.dart';
-import 'package:dawak/ui/widgets/welcome_content.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/back_ground_decoration.dart';
+import 'package:dawak/features/onboarding/presentation/screens/widgets/welcome_content.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreenBody extends StatefulWidget {

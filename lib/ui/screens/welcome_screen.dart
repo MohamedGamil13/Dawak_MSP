@@ -1,3 +1,4 @@
+import 'package:dawak/features/auth/presentation/screens/login_screen.dart';
 import 'package:dawak/ui/widgets/welcome_screen_body.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,15 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: WelcomeScreenBody(onGetStarted: () {}, onLogin: () {}),
+        child: WelcomeScreenBody(
+          onGetStarted: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            );
+          },
+          onLogin: () {},
+        ),
       ),
     );
   }

@@ -1,35 +1,40 @@
 import 'package:dawak/core/theme/app_colors.dart';
-import 'package:dawak/features/auth/presentation/screens/register_screen.dart';
-import 'package:dawak/features/auth/presentation/screens/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+import 'auth_text_field.dart';
+
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
 
+  final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
 
   @override
   void dispose() {
+    _fullNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
-  void _signIn() {
+  void _createAccount() {
     if (!_formKey.currentState!.validate()) return;
 
+    debugPrint('Name: ${_fullNameController.text}');
     debugPrint('Email: ${_emailController.text}');
-    debugPrint('Password: ${_passwordController.text}');
   }
 
   @override
@@ -39,11 +44,29 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           AuthTextField(
+            controller: _fullNameController,
+            label: 'Full Name',
+            hint: 'John Doe',
+            prefixIcon: Icons.person_outline,
+            textInputAction: TextInputAction.next,
+            validator: (value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Please enter your full name';
+              }
+
+              return null;
+            },
+          ),
+
+          const SizedBox(height: 16),
+
+          AuthTextField(
             controller: _emailController,
             label: 'Email Address',
-            hint: 'you@example.com',
-            keyboardType: TextInputType.emailAddress,
+            hint: 'name@example.com',
             prefixIcon: Icons.mail_outline,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
                 return 'Please enter your email';
@@ -65,6 +88,7 @@ class _LoginFormState extends State<LoginForm> {
             hint: '••••••••',
             prefixIcon: Icons.lock_outline,
             obscureText: !_isPasswordVisible,
+            textInputAction: TextInputAction.next,
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -80,46 +104,59 @@ class _LoginFormState extends State<LoginForm> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter your password';
+                return 'Please enter a password';
+              }
+
+              if (value.length < 6) {
+                return 'Password must be at least 6 characters';
               }
 
               return null;
             },
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
 
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
+          AuthTextField(
+            controller: _confirmPasswordController,
+            label: 'Confirm Password',
+            hint: '••••••••',
+            prefixIcon: Icons.lock_reset_outlined,
+            obscureText: !_isConfirmPasswordVisible,
+            textInputAction: TextInputAction.done,
+            suffixIcon: IconButton(
               onPressed: () {
-                // TODO: MODIFY
-                // Navigate to Forgot Password Screen ==========================
+                setState(() {
+                  _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+                });
               },
-              child: const Text(
-                'Forgot Password?',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.primary,
-                ),
+              icon: Icon(
+                _isConfirmPasswordVisible
+                    ? Icons.visibility_outlined
+                    : Icons.visibility_off_outlined,
+                color: AppColors.outline,
               ),
             ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please confirm your password';
+              }
+
+              if (value != _passwordController.text) {
+                return 'Passwords do not match';
+              }
+
+              return null;
+            },
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
 
           SizedBox(
             width: double.infinity,
-            height: 52,
+            height: 48,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                );
-              },
-              // _signIn,
+              onPressed: _createAccount,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
@@ -130,12 +167,10 @@ class _LoginFormState extends State<LoginForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Sign In',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    'Create Account',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                   ),
-
                   SizedBox(width: 8),
-
                   Icon(Icons.arrow_forward, size: 20),
                 ],
               ),

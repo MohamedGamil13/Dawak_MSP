@@ -1,5 +1,5 @@
 import 'package:dawak/core/theme/app_colors.dart';
-import 'package:dawak/features/home/presentation/screens/widgets/home_bottom_nav_bar.dart';
+import 'package:dawak/core/widgets/home_bottom_nav_bar.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/home_header.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/progress_section.dart';
 import 'package:dawak/features/home/presentation/screens/widgets/stock_alert_banner.dart';

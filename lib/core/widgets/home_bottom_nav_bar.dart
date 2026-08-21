@@ -13,18 +13,35 @@ class HomeBottomNavBar extends StatelessWidget {
     return CurvedNavigationBar(
       index: currentIndex,
       height: 65,
-      backgroundColor: Colors.transparent,
-      color: AppColors.surface,
+      backgroundColor: AppColors.surface,
+      color: AppColors.primaryContainer,
       buttonBackgroundColor: AppColors.primaryContainer,
       animationDuration: const Duration(milliseconds: 300),
       animationCurve: Curves.easeInOut,
-      items: const [
-        Icon(Icons.home, color: AppColors.onSurfaceVariant),
 
-        Icon(Icons.history, color: AppColors.onSurfaceVariant),
+      items: [
+        Icon(
+          Icons.home,
+          color: currentIndex == 0
+              ? AppColors.white
+              : AppColors.onSurfaceVariant,
+        ),
 
-        Icon(Icons.person_outline, color: AppColors.onSurfaceVariant),
+        Icon(
+          Icons.history,
+          color: currentIndex == 1
+              ? AppColors.white
+              : AppColors.onSurfaceVariant,
+        ),
+
+        Icon(
+          Icons.person_outline,
+          color: currentIndex == 2
+              ? AppColors.white
+              : AppColors.onSurfaceVariant,
+        ),
       ],
+
       onTap: (index) {
         if (index == currentIndex) return;
 
@@ -36,14 +53,11 @@ class HomeBottomNavBar extends StatelessWidget {
           case 1:
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (_) => const HistoryScreen()),
+              MaterialPageRoute(builder: (context) => const HistoryScreen()),
             );
             break;
 
           case 2:
-            break;
-
-          case 3:
             break;
         }
       },

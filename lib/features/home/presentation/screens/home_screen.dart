@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         ),
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: const HomeBottomNavBar(),
+      bottomNavigationBar: const HomeBottomNavBar(currentIndex: 0),
       body: SafeArea(
         child: Column(
           children: [
